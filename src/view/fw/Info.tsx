@@ -1,12 +1,8 @@
 import { jsxFactory, IvirtualNode } from "@cimo/jsmvcfw/dist/src/Main";
 
-// Source
-import * as modelIndex from "../../model/Index";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const viewFwInfo = (variableObject: modelIndex.Ivariable): IvirtualNode => {
+const viewFwInfo = (): IvirtualNode => {
     return (
-        <div>
+        <div class="view_content">
             <h1>Info</h1>
             <p>
                 The framework is a platform designed to simplify the development of dynamic user interfaces and modern web applications. It provides a
@@ -28,15 +24,12 @@ const viewFwInfo = (variableObject: modelIndex.Ivariable): IvirtualNode => {
                     application logic.
                 </li>
                 <li>
-                    Integrated routing: allows navigation between views without reloading the entire page, ideal for single-page applications (SPA).
+                    Integrated routing: allows navigation between views with and without reloading the entire page. If need single page application or
+                    use webserver, the system support both navigation just with 1 setting (it's possible use both in same application).
                 </li>
                 <li>
                     Interfaces with JSX: enables defining the interface structure using a declarative syntax that combines logic and markup,
                     simplifying the creation of complex components. It's not necessary to use a custom name or special code, just simple html.
-                </li>
-                <li>
-                    Dynamic form creation: includes features to generate and manage forms with validation, events, and data binding, reducing manual
-                    coding.
                 </li>
                 <li>
                     Storage management: allows saving data in localStorage or sessionStorage, with encoding options to ensure security and integrity.

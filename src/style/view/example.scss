@@ -1,0 +1,38 @@
+@use "../color.scss" as color;
+
+.view_example {
+    & > .header {
+        height: auto !important;
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px;
+        }
+    }
+    & > .left {
+        width: 100% !important;
+
+        .section {
+            margin: 10px;
+
+            .title {
+                font-weight: bold;
+                font-size: 18px;
+            }
+        }
+
+        button {
+            border: 1px solid color.$black;
+            background-color: color.$grey400;
+            padding: 5px;
+            margin: 5px;
+            box-shadow: 1px 1px color.$blackRgb;
+            cursor: pointer;
+        }
+    }
+
+    p {
+        margin: 10px;
+    }
+}

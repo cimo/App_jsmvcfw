@@ -5,6 +5,9 @@ import * as modelIndex from "../model/Index";
 import viewFwInfo from "../view/fw/Info";
 import viewFwFile from "../view/fw/File";
 import viewFwMethod from "../view/fw/Method";
+import viewMvcModel from "../view/mvc/Model";
+import viewMvcView from "../view/mvc/View";
+import viewMvcController from "../view/mvc/Controller";
 
 const viewIndex = (variableObject: modelIndex.Ivariable, methodObject: modelIndex.Imethod): IvirtualNode => {
     return (
@@ -29,10 +32,10 @@ const viewIndex = (variableObject: modelIndex.Ivariable, methodObject: modelInde
                             <p
                                 class="click"
                                 onclick={() => {
-                                    methodObject.onClickLink("/about");
+                                    methodObject.onClickLink("/example");
                                 }}
                             >
-                                About
+                                Example usage
                             </p>
                         </li>
                         <li class="category">Framework:</li>
@@ -66,22 +69,53 @@ const viewIndex = (variableObject: modelIndex.Ivariable, methodObject: modelInde
                                 Method
                             </p>
                         </li>
-                        <li class="category">Model:</li>
-                        <li class="click">Structure</li>
-                        <li class="category">View:</li>
-                        <li class="click">Structure</li>
-                        <li class="category">Controller:</li>
-                        <li class="click">Structure</li>
+                        <li class="category">Mvc structure:</li>
+                        <li>
+                            <p
+                                class="click"
+                                onclick={() => {
+                                    methodObject.onClickItem("mvcModel");
+                                }}
+                            >
+                                Model
+                            </p>
+                        </li>
+                        <li>
+                            <p
+                                class="click"
+                                onclick={() => {
+                                    methodObject.onClickItem("mvcView");
+                                }}
+                            >
+                                View
+                            </p>
+                        </li>
+                        <li>
+                            <p
+                                class="click"
+                                onclick={() => {
+                                    methodObject.onClickItem("mvcController");
+                                }}
+                            >
+                                Controller
+                            </p>
+                        </li>
                     </ul>
                 </div>
                 <div class="right">
                     {(() => {
                         if (variableObject.itemClickName.state === "fwInfo") {
-                            return viewFwInfo(variableObject);
+                            return viewFwInfo();
                         } else if (variableObject.itemClickName.state === "fwFile") {
-                            return viewFwFile(variableObject);
+                            return viewFwFile();
                         } else if (variableObject.itemClickName.state === "fwMethod") {
-                            return viewFwMethod(variableObject);
+                            return viewFwMethod();
+                        } else if (variableObject.itemClickName.state === "mvcModel") {
+                            return viewMvcModel();
+                        } else if (variableObject.itemClickName.state === "mvcView") {
+                            return viewMvcView();
+                        } else if (variableObject.itemClickName.state === "mvcController") {
+                            return viewMvcController();
                         } else {
                             return (
                                 <div>

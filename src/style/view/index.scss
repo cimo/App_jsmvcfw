@@ -39,6 +39,7 @@
         h1 {
             font-size: 24px;
             font-weight: bold;
+            margin: 10px 0 10px 0;
         }
 
         p {
@@ -46,8 +47,8 @@
         }
 
         ul {
-            margin: 10px;
             list-style: disc;
+            margin: 10px 10px 10px 20px !important;
 
             li {
                 padding: 5px;
@@ -66,5 +67,29 @@
             border: 1px solid color.$black;
             margin-right: 10px;
         }
+    }
+}
+
+.view_content {
+    margin-right: 10px;
+}
+
+table {
+    border: 1px solid color.$black !important;
+
+    colgroup {
+        .cell {
+            width: 50px !important;
+        }
+    }
+
+    thead {
+        .row {
+            background-color: color.$blueMedium200 !important;
+        }
+    }
+
+    .cell {
+        border: 1px solid color.$black !important;
     }
 }

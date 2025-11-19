@@ -1,10 +1,11 @@
-import { setUrlRoot, route } from "@cimo/jsmvcfw/dist/src/Main";
+import { setUrlRoot, setAppLabel, route } from "@cimo/jsmvcfw/dist/src/Main";
 
 // Source
 import ControllerIndex from "./controller/Index";
-import ControllerAbout from "./controller/About";
+import ControllerExample from "./controller/Example";
 
 setUrlRoot("");
+setAppLabel("jsmvcfw");
 
 route([
     {
@@ -13,8 +14,8 @@ route([
         controller: () => new ControllerIndex()
     },
     {
-        title: "About",
-        path: "/about",
-        controller: () => new ControllerAbout()
+        title: "Example",
+        path: "/example",
+        controller: () => new ControllerExample()
     }
 ]);

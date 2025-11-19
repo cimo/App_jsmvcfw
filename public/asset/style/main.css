@@ -216,13 +216,14 @@ table .row .cell.center {
 .view_index > .right h1 {
   font-size: 24px;
   font-weight: bold;
+  margin: 10px 0 10px 0;
 }
 .view_index > .right p {
   margin: 10px;
 }
 .view_index > .right ul {
-  margin: 10px;
   list-style: disc;
+  margin: 10px 10px 10px 20px !important;
 }
 .view_index > .right ul li {
   padding: 5px;
@@ -238,27 +239,55 @@ table .row .cell.center {
   margin-right: 10px;
 }
 
-.view_fw_file ul {
-  margin: 10px 10px 10px 20px !important;
-}
-.view_fw_file .section {
-  margin-bottom: 50px;
+.view_content {
+  margin-right: 10px;
 }
 
-.view_fw_method table {
+table {
   border: 1px solid #000000 !important;
 }
-.view_fw_method table colgroup .cell {
+table colgroup .cell {
   width: 50px !important;
 }
-.view_fw_method table colgroup .cell.button_field {
-  width: 200px !important;
-}
-.view_fw_method table thead .row {
+table thead .row {
   background-color: #bddeff !important;
 }
-.view_fw_method table .cell {
+table .cell {
   border: 1px solid #000000 !important;
+}
+
+.view_example > .header {
+  height: auto !important;
+}
+.view_example > .header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px;
+}
+.view_example > .left {
+  width: 100% !important;
+}
+.view_example > .left .section {
+  margin: 10px;
+}
+.view_example > .left .section .title {
+  font-weight: bold;
+  font-size: 18px;
+}
+.view_example > .left button {
+  border: 1px solid #000000;
+  background-color: #ccd3e0;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.view_example p {
+  margin: 10px;
+}
+
+.view_fw_file .section {
+  margin-bottom: 50px;
 }
 
 /*# sourceMappingURL=main.css.map */

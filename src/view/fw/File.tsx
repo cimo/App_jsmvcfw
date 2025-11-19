@@ -1,12 +1,8 @@
 import { jsxFactory, IvirtualNode } from "@cimo/jsmvcfw/dist/src/Main";
 
-// Source
-import * as modelIndex from "../../model/Index";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const viewFwFile = (variableObject: modelIndex.Ivariable): IvirtualNode => {
+const viewFwFile = (): IvirtualNode => {
     return (
-        <div class="view_fw_file">
+        <div class="view_content view_fw_file">
             <h1>File</h1>
             <div class="section">
                 <p class="title">JsMvcFw.ts</p>
@@ -40,7 +36,26 @@ const viewFwFile = (variableObject: modelIndex.Ivariable): IvirtualNode => {
             </div>
             <div class="section">
                 <p class="title">JsMvcFwCookie.ts</p>
-                <div class="group">Work in progress...</div>
+                <p>
+                    This file provides utility functions for managing cookies in a secure and structured way, including encoding, decoding, and
+                    parsing values.
+                </p>
+                <div class="group">
+                    <p class="sub_title">Key Features:</p>
+                    <ul>
+                        <li>Cookie writing: writeCookie stores data as Base64-encoded JSON with optional expiration, HTTP-only flag, and path.</li>
+                        <li>Cookie reading: readCookie retrieves and decodes stored cookies, automatically parsing JSON if valid.</li>
+                        <li>Cookie removal: removeCookie deletes cookies by setting their expiration date to a past timestamp.</li>
+                    </ul>
+                    <p class="sub_title">Architecture:</p>
+                    <ul>
+                        <li>Base64 encoding: All values are encoded using window.btoa and decoded with window.atob for safe storage.</li>
+                        <li>JSON serialization: Complex objects are serialized before encoding, ensuring type consistency on retrieval.</li>
+                        <li>Namespacing: Cookie keys are prefixed with getAppLabel() to avoid collisions across different applications.</li>
+                        <li>Secure flag: Cookies are marked as Secure to enforce HTTPS-only transmission.</li>
+                        <li>Regex escaping: escapeRegExp prevents regex injection when matching cookie names.</li>
+                    </ul>
+                </div>
             </div>
             <div class="section">
                 <p class="title">JsMvcFwDom.ts</p>
@@ -99,10 +114,6 @@ const viewFwFile = (variableObject: modelIndex.Ivariable): IvirtualNode => {
                         <li>Flexible removal: Supports both single listener removal and bulk removal for a given event.</li>
                     </ul>
                 </div>
-            </div>
-            <div class="section">
-                <p class="title">JsMvcFwForm.ts</p>
-                <div class="group">Work in progress...</div>
             </div>
             <div class="section">
                 <p class="title">JsMvcFwInterface.ts</p>
@@ -227,7 +238,23 @@ const viewFwFile = (variableObject: modelIndex.Ivariable): IvirtualNode => {
             </div>
             <div class="section">
                 <p class="title">JsMvcFwStorage.ts</p>
-                <div class="group">Work in progress...</div>
+                <p>This file provides utility functions for managing data in localStorage with storage.</p>
+                <div class="group">
+                    <p class="sub_title">Key Features:</p>
+                    <ul>
+                        <li>Data writing: writeStorage serializes the value to JSON, encodes it as Base64, and stores it under a namespaced key.</li>
+                        <li>Data reading: readStorage retrieves the stored value, decodes Base64, and parses JSON back to its original type.</li>
+                        <li>Data removal: removeStorage deletes the item from localStorage using the namespaced key.</li>
+                    </ul>
+                    <p class="sub_title">Architecture:</p>
+                    <ul>
+                        <li>Base64 encoding: Values are encoded using window.btoa and decoded with window.atob for safe storage.</li>
+                        <li>JSON serialization: Complex objects are converted to JSON before encoding, ensuring compatibility with localStorage.</li>
+                        <li>Namespacing: Keys are prefixed with getAppLabel() to avoid collisions between different applications or modules.</li>
+                        <li>Persistent storage: Unlike cookies, data stored in localStorage persists until explicitly removed.</li>
+                        <li>Type safety: Generic types (T) ensure that stored and retrieved data maintain type consistency.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     );

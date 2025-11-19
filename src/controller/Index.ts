@@ -1,14 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-    Icontroller,
-    IvariableEffect,
-    IvirtualNode,
-    variableBind,
-    navigateTo,
-    elementObserver,
-    elementObserverOff,
-    elementObserverOn
-} from "@cimo/jsmvcfw/dist/src/Main";
+import { Icontroller, IvariableEffect, IvirtualNode, variableBind, navigateTo } from "@cimo/jsmvcfw/dist/src/Main";
 
 // Source
 import * as modelIndex from "../model/Index";

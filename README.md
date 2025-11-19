@@ -4,9 +4,8 @@ App example for npm_jsmvcfw package.
 
 ## Info:
 
-- a
-- b
-- c
+This is the example app, with a wiki, for understanding how to use the framework and how it is built.
+Is created with "npm_jsMvcFw" to show everything in real use cases.
 
 ## Installation
 

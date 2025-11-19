@@ -1,12 +1,8 @@
 import { jsxFactory, IvirtualNode } from "@cimo/jsmvcfw/dist/src/Main";
 
-// Source
-import * as modelIndex from "../../model/Index";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const viewFwMethod = (variableObject: modelIndex.Ivariable): IvirtualNode => {
+const viewFwMethod = (): IvirtualNode => {
     return (
-        <div class="view_fw_method">
+        <div class="view_content">
             <h1>Method</h1>
             <ul>
                 <li>
@@ -20,8 +16,8 @@ const viewFwMethod = (variableObject: modelIndex.Ivariable): IvirtualNode => {
                         <thead>
                             <tr class="row not_hover">
                                 <th class="cell">Signature</th>
-                                <th class="cell">Purpose</th>
-                                <th class="cell">Return</th>
+                                <th class="cell">Return type</th>
+                                <th class="cell">Description</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -87,7 +83,41 @@ const viewFwMethod = (variableObject: modelIndex.Ivariable): IvirtualNode => {
                 </li>
                 <li>
                     <p class="title">JsMvcFwCookie.ts</p>
-                    <p>Work in progess...</p>
+                    <table>
+                        <colgroup>
+                            <col class="cell" />
+                            <col class="cell" />
+                            <col class="cell" />
+                        </colgroup>
+                        <thead>
+                            <tr class="row not_hover">
+                                <th class="cell">Signature</th>
+                                <th class="cell">Return type</th>
+                                <th class="cell">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row">
+                                <td class="cell">{"writeCookie<T>(tag: string, value: T, expire = '', httpOnly = '', path = '/')"} </td>
+                                <td class="cell">{"void"}</td>
+                                <td class="cell">
+                                    Encodes the value as Base64, stores it in a cookie with optional expiration, HTTP-only flag, and path.
+                                </td>
+                            </tr>
+                            <tr class="row">
+                                <td class="cell">{"readCookie<T>(tag: string)"} </td>
+                                <td class="cell">{"T | undefined"}</td>
+                                <td class="cell">
+                                    Reads a cookie by tag, decodes Base64 if applicable, parses JSON if valid, and returns the value.
+                                </td>
+                            </tr>
+                            <tr class="row">
+                                <td class="cell">{"removeCookie(tag: string)"} </td>
+                                <td class="cell">{"void"}</td>
+                                <td class="cell">Deletes the cookie by setting its expiration date to a past timestamp.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </li>
                 <li>
                     <p class="title">JsMvcFwDom.ts</p>
@@ -145,10 +175,6 @@ const viewFwMethod = (variableObject: modelIndex.Ivariable): IvirtualNode => {
                             </tr>
                         </tbody>
                     </table>
-                </li>
-                <li>
-                    <p class="title">JsMvcFwForm.ts</p>
-                    <p>Work in progess...</p>
                 </li>
                 <li>
                     <p class="title">JsMvcFwInterface.ts</p>
@@ -291,7 +317,37 @@ const viewFwMethod = (variableObject: modelIndex.Ivariable): IvirtualNode => {
                 </li>
                 <li>
                     <p class="title">JsMvcFwStorage.ts</p>
-                    <p>Work in progess...</p>
+                    <table>
+                        <colgroup>
+                            <col class="cell" />
+                            <col class="cell" />
+                            <col class="cell" />
+                        </colgroup>
+                        <thead>
+                            <tr class="row not_hover">
+                                <th class="cell">Signature</th>
+                                <th class="cell">Return type</th>
+                                <th class="cell">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row">
+                                <td class="cell">{"writeStorage<T>(tag: string, value: T)"} </td>
+                                <td class="cell">{"void"}</td>
+                                <td class="cell">Encodes the value as Base64 and stores it in localStorage under a namespaced key.</td>
+                            </tr>
+                            <tr class="row">
+                                <td class="cell">{"readStorage<T>(tag: string)"} </td>
+                                <td class="cell">{"T | undefined"}</td>
+                                <td class="cell">Retrieves and decodes the stored value from localStorage, parsing JSON if applicable.</td>
+                            </tr>
+                            <tr class="row">
+                                <td class="cell">{"removeStorage(tag: string)"} </td>
+                                <td class="cell">{"void"}</td>
+                                <td class="cell">Removes the item from localStorage using the namespaced key.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </li>
             </ul>
         </div>
