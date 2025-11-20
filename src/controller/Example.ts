@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
     Icontroller,
     IvariableEffect,
@@ -28,6 +27,7 @@ export default class Example implements Icontroller {
     private elementDivTest: HTMLElement | null;
     private elementObserverTest: HTMLElement | null;
     private elementCookieRead: HTMLElement | null;
+    private elementStorageRead: HTMLElement | null;
 
     // Method
     private onClickLink = (pagePath: string): void => {
@@ -68,13 +68,21 @@ export default class Example implements Icontroller {
 
     private onClickWriteCookie = (): void => {
         writeCookie<string>("test", "1");
+
+        if (this.elementCookieRead) {
+            this.elementCookieRead.innerText = "Created";
+        }
     };
 
     private onClickReadCookie = (): void => {
         const result = readCookie<string>("test");
 
-        if (this.elementCookieRead && result) {
-            this.elementCookieRead.innerText = result;
+        if (this.elementCookieRead) {
+            if (result) {
+                this.elementCookieRead.innerText = result;
+            } else {
+                this.elementCookieRead.innerText = "";
+            }
         }
     };
 
@@ -82,7 +90,35 @@ export default class Example implements Icontroller {
         removeCookie("test");
 
         if (this.elementCookieRead) {
-            this.elementCookieRead.innerText = "";
+            this.elementCookieRead.innerText = "Removed";
+        }
+    };
+
+    private onClickWriteStorage = (): void => {
+        writeStorage<string>("test", "1");
+
+        if (this.elementStorageRead) {
+            this.elementStorageRead.innerText = "Created";
+        }
+    };
+
+    private onClickReadStorage = (): void => {
+        const result = readStorage<string>("test");
+
+        if (this.elementStorageRead) {
+            if (result) {
+                this.elementStorageRead.innerText = result;
+            } else {
+                this.elementStorageRead.innerText = "";
+            }
+        }
+    };
+
+    private onClickRemoveStorage = (): void => {
+        removeStorage("test");
+
+        if (this.elementStorageRead) {
+            this.elementStorageRead.innerText = "Removed";
         }
     };
 
@@ -93,6 +129,7 @@ export default class Example implements Icontroller {
         this.elementDivTest = null;
         this.elementObserverTest = null;
         this.elementCookieRead = null;
+        this.elementStorageRead = null;
     }
 
     elementHookObject = {} as modelExample.IelementHook;
@@ -113,7 +150,10 @@ export default class Example implements Icontroller {
             onClickVariableWatchTest: this.onClickVariableWatchTest,
             onClickWriteCookie: this.onClickWriteCookie,
             onClickReadCookie: this.onClickReadCookie,
-            onClickRemoveCookie: this.onClickRemoveCookie
+            onClickRemoveCookie: this.onClickRemoveCookie,
+            onClickWriteStorage: this.onClickWriteStorage,
+            onClickReadStorage: this.onClickReadStorage,
+            onClickRemoveStorage: this.onClickRemoveStorage
         };
     }
 
@@ -144,6 +184,7 @@ export default class Example implements Icontroller {
         this.elementDivTest = this.elementHookObject.elementDivTest;
         this.elementObserverTest = this.elementHookObject.elementObserverTest;
         this.elementCookieRead = this.elementHookObject.elementCookieRead;
+        this.elementStorageRead = this.elementHookObject.elementStorageRead;
 
         this.statusElmentObserverTest();
     }

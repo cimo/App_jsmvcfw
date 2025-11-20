@@ -13,10 +13,14 @@ export interface Imethod {
     onClickWriteCookie: () => void;
     onClickReadCookie: () => void;
     onClickRemoveCookie: () => void;
+    onClickWriteStorage: () => void;
+    onClickReadStorage: () => void;
+    onClickRemoveStorage: () => void;
 }
 
 export interface IelementHook extends Record<string, Element | Element[]> {
     elementDivTest: HTMLElement;
     elementObserverTest: HTMLElement;
     elementCookieRead: HTMLElement;
+    elementStorageRead: HTMLElement;
 }

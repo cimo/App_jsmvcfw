@@ -99,7 +99,7 @@ const viewExample = (variableObject: modelExample.Ivariable, methodObject: model
                         <p>
                             This example show how coockie works.
                             <br />
-                            Check in your dev tool the cookie to see the result.
+                            Check in your dev tool the cookie to see the result (the read value for this example is "1").
                         </p>
                         <button
                             onclick={() => {
@@ -123,7 +123,39 @@ const viewExample = (variableObject: modelExample.Ivariable, methodObject: model
                             Click for remove
                         </button>
                         <p>
-                            Cookie read: <span jsmvcfw-elementHookName="elementCookieRead"></span>
+                            Cookie status: <span jsmvcfw-elementHookName="elementCookieRead"></span>
+                        </p>
+                    </div>
+                    <div class="section">
+                        <p class="title">Example: storage.</p>
+                        <p>
+                            This example show how storage works.
+                            <br />
+                            Check in your dev tool the local storage to see the result (the read value for this example is "1").
+                        </p>
+                        <button
+                            onclick={() => {
+                                methodObject.onClickWriteStorage();
+                            }}
+                        >
+                            Click for create
+                        </button>
+                        <button
+                            onclick={() => {
+                                methodObject.onClickReadStorage();
+                            }}
+                        >
+                            Click for read
+                        </button>
+                        <button
+                            onclick={() => {
+                                methodObject.onClickRemoveStorage();
+                            }}
+                        >
+                            Click for remove
+                        </button>
+                        <p>
+                            Storage status: <span jsmvcfw-elementHookName="elementStorageRead"></span>
                         </p>
                     </div>
                 </div>

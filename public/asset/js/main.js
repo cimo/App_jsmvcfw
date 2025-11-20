@@ -951,6 +951,7 @@ class Example {
     __publicField(this, "elementDivTest");
     __publicField(this, "elementObserverTest");
     __publicField(this, "elementCookieRead");
+    __publicField(this, "elementStorageRead");
     // Method
     __publicField(this, "onClickLink", (pagePath) => {
       (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.navigateTo)(pagePath);
@@ -982,17 +983,46 @@ class Example {
     });
     __publicField(this, "onClickWriteCookie", () => {
       (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.writeCookie)("test", "1");
+      if (this.elementCookieRead) {
+        this.elementCookieRead.innerText = "Created";
+      }
     });
     __publicField(this, "onClickReadCookie", () => {
       const result = (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.readCookie)("test");
-      if (this.elementCookieRead && result) {
-        this.elementCookieRead.innerText = result;
+      if (this.elementCookieRead) {
+        if (result) {
+          this.elementCookieRead.innerText = result;
+        } else {
+          this.elementCookieRead.innerText = "";
+        }
       }
     });
     __publicField(this, "onClickRemoveCookie", () => {
       (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.removeCookie)("test");
       if (this.elementCookieRead) {
-        this.elementCookieRead.innerText = "";
+        this.elementCookieRead.innerText = "Removed";
+      }
+    });
+    __publicField(this, "onClickWriteStorage", () => {
+      (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.writeStorage)("test", "1");
+      if (this.elementStorageRead) {
+        this.elementStorageRead.innerText = "Created";
+      }
+    });
+    __publicField(this, "onClickReadStorage", () => {
+      const result = (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.readStorage)("test");
+      if (this.elementStorageRead) {
+        if (result) {
+          this.elementStorageRead.innerText = result;
+        } else {
+          this.elementStorageRead.innerText = "";
+        }
+      }
+    });
+    __publicField(this, "onClickRemoveStorage", () => {
+      (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.removeStorage)("test");
+      if (this.elementStorageRead) {
+        this.elementStorageRead.innerText = "Removed";
       }
     });
     __publicField(this, "elementHookObject", {});
@@ -1001,6 +1031,7 @@ class Example {
     this.elementDivTest = null;
     this.elementObserverTest = null;
     this.elementCookieRead = null;
+    this.elementStorageRead = null;
   }
   variable() {
     this.variableObject = (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.variableBind)(
@@ -1017,7 +1048,10 @@ class Example {
       onClickVariableWatchTest: this.onClickVariableWatchTest,
       onClickWriteCookie: this.onClickWriteCookie,
       onClickReadCookie: this.onClickReadCookie,
-      onClickRemoveCookie: this.onClickRemoveCookie
+      onClickRemoveCookie: this.onClickRemoveCookie,
+      onClickWriteStorage: this.onClickWriteStorage,
+      onClickReadStorage: this.onClickReadStorage,
+      onClickRemoveStorage: this.onClickRemoveStorage
     };
   }
   variableEffect(watch) {
@@ -1043,6 +1077,7 @@ class Example {
     this.elementDivTest = this.elementHookObject.elementDivTest;
     this.elementObserverTest = this.elementHookObject.elementObserverTest;
     this.elementCookieRead = this.elementHookObject.elementCookieRead;
+    this.elementStorageRead = this.elementHookObject.elementStorageRead;
     this.statusElmentObserverTest();
   }
   destroy() {
@@ -1167,7 +1202,7 @@ const viewExample = (variableObject, methodObject) => {
       }
     },
     "Click for watch"
-  ), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "Text: ", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("span", null, variableObject.variableWatchTest.state))), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("div", { class: "section" }, /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", { class: "title" }, "Example: elementObserver."), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, 'This example show how "elementObserver" works.', /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("br", null), "If the DOM element change, the event defined in the controller, will be executed.", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("br", null), "The change will be catch if the status of that element will be changed by the logic action (don't have effect if will be reset by the render on the initial status)."), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "DOM element: ", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("span", { "jsmvcfw-elementHookName": "elementObserverTest" }))), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("div", { class: "section" }, /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", { class: "title" }, "Example: cookie."), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "This example show how coockie works.", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("br", null), "Check in your dev tool the cookie (refresh your cookie tab after each interaction for show the result)."), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)(
+  ), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "Text: ", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("span", null, variableObject.variableWatchTest.state))), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("div", { class: "section" }, /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", { class: "title" }, "Example: elementObserver."), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, 'This example show how "elementObserver" works.', /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("br", null), "If the DOM element change, the event defined in the controller, will be executed.", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("br", null), "The change will be catch if the status of that element will be changed by the logic action (don't have effect if will be reset by the render on the initial status)."), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "DOM element: ", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("span", { "jsmvcfw-elementHookName": "elementObserverTest" }))), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("div", { class: "section" }, /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", { class: "title" }, "Example: cookie."), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "This example show how coockie works.", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("br", null), 'Check in your dev tool the cookie to see the result (the read value for this example is "1").'), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)(
     "button",
     {
       onclick: () => {
@@ -1191,7 +1226,31 @@ const viewExample = (variableObject, methodObject) => {
       }
     },
     "Click for remove"
-  ), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "Cookie read: ", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("span", { "jsmvcfw-elementHookName": "elementCookieRead" }))))));
+  ), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "Cookie status: ", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("span", { "jsmvcfw-elementHookName": "elementCookieRead" }))), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("div", { class: "section" }, /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", { class: "title" }, "Example: storage."), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "This example show how storage works.", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("br", null), 'Check in your dev tool the local storage to see the result (the read value for this example is "1").'), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)(
+    "button",
+    {
+      onclick: () => {
+        methodObject.onClickWriteStorage();
+      }
+    },
+    "Click for create"
+  ), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)(
+    "button",
+    {
+      onclick: () => {
+        methodObject.onClickReadStorage();
+      }
+    },
+    "Click for read"
+  ), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)(
+    "button",
+    {
+      onclick: () => {
+        methodObject.onClickRemoveStorage();
+      }
+    },
+    "Click for remove"
+  ), /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("p", null, "Storage status: ", /* @__PURE__ */ (0,_cimo_jsmvcfw_dist_src_Main__WEBPACK_IMPORTED_MODULE_0__.jsxFactory)("span", { "jsmvcfw-elementHookName": "elementStorageRead" }))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (viewExample);
 
